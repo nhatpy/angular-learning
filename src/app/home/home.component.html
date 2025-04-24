@@ -1,0 +1,14 @@
+<div class="p-4 flex flex-col justify-center items-center">
+  <app-greeting [message]="homeMessage()" />
+  <app-counter />
+  <div>
+    My Home component is a child of the App component and a parent of the
+    Greeting component.
+  </div>
+  <input
+    placeholder="type something!"
+    type="text"
+    (keyup)="keyUpHandler($event)"
+    class="border"
+  />
+</div>

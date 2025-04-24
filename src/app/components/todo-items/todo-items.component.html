@@ -1,0 +1,27 @@
+<p>todo-items works!</p>
+
+@if (todos().length <= 0) {
+<p>...Loading</p>
+}
+
+<form>
+  <label>Filter Todos</label>
+  <input
+    name="searchTerm"
+    [(ngModel)]="searchTerm"
+    placeholder="Search query ..."
+  />
+</form>
+
+<ul>
+  @for (todo of todos() | filterTodos: searchTerm(); track todo.id) {
+  <li appHighlightCompletedTodo [isCompleted]="todo.completed">
+    <span>{{ todo.title | uppercase }}</span>
+    <input
+      type="checkbox"
+      [checked]="todo.completed"
+      (change)="todoClick(todo)"
+    />
+  </li>
+  }
+</ul>
